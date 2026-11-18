@@ -8,8 +8,12 @@ def main():
         if command == 'q':
             return
         if command == 'a':
-            task = manager.add(input('Title: '))
-            print(f'Added task {task.identifier}.')
+            try:
+                task = manager.add(input('Title: '))
+            except ValueError as error:
+                print(error)
+            else:
+                print(f'Added task {task.identifier}.')
         elif command == 'l':
             tasks = manager.display()
             if not tasks:
