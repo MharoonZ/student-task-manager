@@ -1,3 +1,3 @@
 # student-task-manager
 
-Project status: Testing
+Project status: Ready for release after testing
