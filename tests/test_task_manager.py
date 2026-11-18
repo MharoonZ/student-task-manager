@@ -23,7 +23,7 @@ class TaskManagerTests(unittest.TestCase):
         second = self.manager.add('Run tests')
         self.assertTrue(self.manager.complete(second.identifier))
         self.assertFalse(first.completed)
-        self.assertFalse(second.completed)
+        self.assertTrue(second.completed)
         self.assertFalse(self.manager.complete(99))
 
     def test_delete_removes_only_the_selected_task(self):
