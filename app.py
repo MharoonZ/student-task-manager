@@ -12,7 +12,7 @@ def read_identifier():
 def main():
     manager = TaskManager()
     while True:
-        command = input('[A]dd [L]ist [C]omplete [Q]uit: ').strip().lower()
+        command = input('[A]dd [L]ist [C]omplete [D]elete [Q]uit: ').strip().lower()
         if command == 'q':
             return
         if command == 'a':
@@ -32,6 +32,9 @@ def main():
         elif command == 'c':
             identifier = read_identifier()
             print('Task completed.' if manager.complete(identifier) else 'Invalid or unknown task ID.')
+        elif command == 'd':
+            identifier = read_identifier()
+            print('Task deleted.' if manager.delete(identifier) else 'Invalid or unknown task ID.')
         else:
             print('Choose an option from the menu.')
 
