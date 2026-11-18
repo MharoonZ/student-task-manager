@@ -24,3 +24,10 @@ class TaskManager:
 
     def display(self):
         return tuple(self._tasks.values())
+
+    def complete(self, identifier):
+        task = self._tasks.get(identifier)
+        if task is None:
+            return False
+        task.completed = True
+        return True

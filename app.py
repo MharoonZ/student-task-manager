@@ -1,10 +1,18 @@
 from task_manager import TaskManager
 
 
+def read_identifier():
+    try:
+        identifier = int(input('Task ID: '))
+    except ValueError:
+        return None
+    return identifier if identifier > 0 else None
+
+
 def main():
     manager = TaskManager()
     while True:
-        command = input('[A]dd [L]ist [Q]uit: ').strip().lower()
+        command = input('[A]dd [L]ist [C]omplete [Q]uit: ').strip().lower()
         if command == 'q':
             return
         if command == 'a':
@@ -21,6 +29,9 @@ def main():
             for task in tasks:
                 status = 'done' if task.completed else 'pending'
                 print(f'{task.identifier}. [{status}] {task.title}')
+        elif command == 'c':
+            identifier = read_identifier()
+            print('Task completed.' if manager.complete(identifier) else 'Invalid or unknown task ID.')
         else:
             print('Choose an option from the menu.')
 
