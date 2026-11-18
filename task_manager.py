@@ -31,3 +31,6 @@ class TaskManager:
             return False
         task.completed = True
         return True
+
+    def delete(self, identifier):
+        return self._tasks.pop(identifier, None) is not None
